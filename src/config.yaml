@@ -1,0 +1,49 @@
+options:
+  backup-container:
+    type: string
+    default: !!null ""
+    description: |
+      Custom directory to use for backups.
+  backup-enable-progress-timer:
+    type: boolean
+    default: true
+    description: |
+      Enable or Disable the timer to send the periodic progress notifications
+      to Ceilometer when backing up the volume to the backend storage.
+      The default value is True to enable the timer.
+  backup-file-size:
+    type: int
+    default: 1999994880
+    description: |
+      Swift user name for authentication.
+  backup-mount-attempts:
+    type: int
+    default: 3
+    description: |
+      The number of attempts to mount NFS shares before raising an error.
+  backup-mount-options:
+    type: string
+    default: !!null ""
+    description: |
+      Mount options passed to the NFS client. See NFS man page for details.
+  backup-mount-point-base:
+    type: string
+    default: "$state_path/backup_mount"
+    description: |
+      Swift tenant name. Required when connecting to an auth 2.0 system.
+  backup-posix-path:
+    type: string
+    default: "$state_path/backup"
+    description: |
+      Path specifying where to store backups.
+  backup-sha-block-size-bytes:
+    type: int
+    default: 32768
+    description: |
+      The size in bytes that changes are tracked for incremental backups.
+      backup_file_size has to be multiple of backup_sha_block_size_bytes.
+  backup-share:
+    type: string
+    default: !!null ""
+    description: |
+      NFS share in hostname:path, ipv4addr:path, or “[ipv6addr]:path” format.
