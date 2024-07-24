@@ -32,6 +32,8 @@ def configure_cinder_backup():
         if None in (name, config):
             return
         endp.publish(name, config)
+        for relation in endp.relations:
+            relation.to_publish['stateless'] = True
         charm_instance.configure_ca()
         flags.set_flag('config.complete')
 
